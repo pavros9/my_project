@@ -1,0 +1,30 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+
+<!-- content -->
+<section class="content">
+    <div class="container-aboutsite">
+        <div class="background_for_text">
+            <div class="wrapper_posts detail_wrapper">
+                <div class="title_separate_page">
+                    {{ post.title }}
+                </div>
+                <div class="date_post">
+                    {{ post.created_date }}
+                </div>
+                <div class="full_text">
+                    {{ post.full_text|safe }}
+                </div>
+            </div>
+            <!-- <h1>{{ post.title }}</h1>
+            <p>{{ post.created_date }}</p>
+            <p>{{ post.full_text }}</p> -->
+
+        </div>
+    </div>
+</section>
+<!-- / content -->
+{% endblock %}

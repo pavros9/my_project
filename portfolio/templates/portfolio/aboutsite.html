@@ -1,0 +1,66 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+
+<!-- content -->
+<section class="content">
+    <div class="container-aboutsite">
+        <div class="background_for_text">
+            <span class="title">О сайте </span>
+            <div class="wrapper_posts">
+                {%  if page_object %}
+                {% for post in page_object.object_list %}
+                <div class="alert alert-warning">
+                    <div class="title_for_posts">
+                        {{ post.title }}
+                    </div>
+                    <div class="anons">
+                        {{ post.anons }}...
+                    </div>
+                    <span class="date_post">{{ post.created_date }}</span>
+                    <div class="aboutsite_button">
+                        <a href="{% url 'posts-detail' post.id %}">
+                            <div class='btn'>
+                                Дальше
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% if is_paginated %}
+            <div class="pages">
+                <ul class="pagination">
+                    <a class="main {% if not prev_url %} disabled {% endif %}" href="{{ prev_url }}">
+                        <li>Назад</li>
+                    </a>
+
+                    {% for n in page_object.paginator.page_range %}
+                    {% if page_object.number == n%}
+                    <a href="?page={{ n }}">
+                        <li class="number active">{{ n }}</li>
+                    </a>
+                    {% elif n > page_object.number|add:-3 and n < page_object.number|add:3 %}
+
+                    <a href="?page={{ n }}">
+                        <li class="number">{{ n }}</li>
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+
+                    <a class="main {% if not next_url %} disabled {% endif %}" href="{{ next_url }}">
+                        <li>Вперед</li>
+                    </a>
+                </ul>
+            </div>
+            {% endif %}
+            {% else %}
+            <p>У вас нет записей!</p>
+            {% endif%}
+        </div>
+    </div>
+</section>
+<!-- / content -->
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'portfolio/layout.html' %}
+{% load static %}
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+<!-- content -->
+<section class="content">
+    <div class="container-aboutme">
+        <div class="background_for_text">
+            <span class="title"> Обо мне </span>
+            <div class="aboutme">
+                {% for el in article %}
+                <div class="wrapper">
+                    {% if el.img %}
+                    <div class="my_photo" style="background: url('{{ el.img.url }}') no-repeat center/cover;">
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="text">
+                    {{ el.content|safe }}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / content -->
+{% endblock %}

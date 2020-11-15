@@ -1,0 +1,81 @@
+{% extends 'portfolio/layout.html' %}
+{% load static %}
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+<section class="content">
+    <div class="container_index">
+        <div class="background_for_text">
+            <ul class="appeal">
+                <li class="title">
+                    Приветствую Вас на своем сайте!
+                </li>
+                <li>
+                    Меня зовут Роман.
+                </li>
+                <li>
+                    Здесь Вы можете ознакомиться с моими проектами и ....
+                </li>
+                <li>
+                    узнать немного обо мне.
+                </li>
+                <li>
+                    Если Вы дошли до этого момента,<br> предлагаю пройти небольшой опрос.
+                </li>
+                <form action="" method="POST">{% csrf_token %}
+                    <li>
+                        <div class="Statement">
+                                1. Вы
+                                    <input type="radio" id="girl" value="девушка" name="gender" class="input"
+                                        required='' onClick="document.getElementById('subutton').disabled = false">
+                                    <label for="girl">девушка</label>
+
+                                    <input type="radio" id="man" value="парень" name="gender" class="input" required=''
+                                        onClick="document.getElementById('subutton').disabled = false">
+                                    <label for="man">парень</label>
+
+                        </div>
+                        {% if form.gender.errors %}
+                        {{ form.gender.errors }}
+                        {% endif %}
+
+                    </li>
+                    <li>
+                        <div class="Statement">
+                            2. Вам
+                            <input type="radio" id="less" value="меньше 18 лет" name="age" class="input" required=''
+                                onClick="document.getElementById('subutton').disabled = false">
+                            <label for="less">меньше 18 лет</label>
+                            <input type="radio" id="more" value="больше 18 лет" name="age" class="input" required=''
+                                onClick="document.getElementById('subutton').disabled = false">
+                            <label for="more">больше 18 лет</label>
+
+                        </div>
+                        {% if form.age.errors %}
+                        {{ form.age.errors }}
+                        {% endif %}
+
+
+                    </li>
+                    <li>
+
+                        <label for="rt">3. Насколько Вам понравился сайт? (От 1 до 10)</label>
+                        <input type="text" name="rating" class="rate" id="rt"
+                            onClick="document.getElementById('subutton').disabled = false">
+                        {% if form.rating.errors %}
+                        {{ form.rating.errors }}
+                        {% endif %}
+
+                    </li>
+                    <li>
+                        <button id="subutton" type="submit" disabled>Отправить</button>
+                    </li>
+                </form>
+                <li>
+                    <img src="{% static 'portfolio/img/img-content.png' %}" alt="">
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>romanpavlov.portfolio</title>
+    <link rel="stylesheet" href="{% static 'portfolio/css/stele.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="page">
+        <!-- / header -->
+        <div class="wrapper">
+            <header class="header">
+                <div class="container">
+                    <div class="header__body">
+                        <div href="#" class="header__logo">
+                            <img src="{% static 'portfolio/img/logo.svg' %}" alt="">
+                        </div>
+                        <div class="header__burger">
+                            <span></span>
+                        </div>
+                        <nav class="header__menu">
+                            <ul class="header__list">
+                                <li>
+                                    <a href="{% url 'home' %}" class="header__link">Главная</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'aboutme' %}" class="header__link">Обо мне</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'projects' %}" class="header__link">Проекты</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'aboutsite' %}" class="header__link">О сайте</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+        </div>
+
+        {% block content %}
+
+        {% endblock %}
+
+
+        <!-- footer -->
+        <section class="footer">
+            <div class="container">
+                <div class="nav">
+                    <div class="developer">
+                        Роман Павлов
+                        <div class="name">
+                            начинающий разработчик
+                        </div>
+                    </div>
+                    <div class="connection">
+                        E-mail: roman.pavlov.1996@bk.ru
+                        <a href="https://vk.com/pav_ros9">
+                            <img src="{% static 'portfolio/img/vk.svg' %}" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- / footer -->
+
+        <!-- scroll_up-->
+        <div class="scroll-up">
+            <svg class="scroll-up_svg" viewBox="-2 -2 52 52">
+                <path class="scroll-up_svg-path" d="
+                    M24,0
+                    a24,24 0 0,1 0,48
+                    a24,24 0 0,1 0,-48
+                " />
+
+            </svg>
+        </div>
+        <!-- /scroll_up-->
+    </div>
+
+    <!-- Подключение JQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <!-- Подключение JS скриптов -->
+    <script src="{% static 'portfolio/js/scrapts.js' %}"></script>
+</body>
+
+</html>
