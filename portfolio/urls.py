@@ -10,4 +10,5 @@ urlpatterns = [
     path('aboutsite/', views.aboutsite, name='aboutsite'),
     path('aboutsite/<int:pk>', views.AboutSiteDetailView.as_view(), name='posts-detail'),
     path('aboutme', views.AboutMeDetailView.as_view(), name='photo-detail'),
+    path('game', views.game, name='game'),
 ]

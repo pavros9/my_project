@@ -4,6 +4,11 @@ from django.utils import timezone
 from django.core.files.storage import FileSystemStorage
 from django import forms
 
+class TimeStampMixin(models.Model):
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        abstract = True
 
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -12,6 +17,8 @@ class Post(models.Model):
     full_text = models.TextField('Текст')
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
+    updated_at = models.DateTimeField('Дата', auto_now=True)
+   
 
     def publish(self):
         self.published_date = timezone.now()

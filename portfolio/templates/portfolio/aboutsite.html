@@ -19,6 +19,7 @@
                     <div class="anons">
                         {{ post.anons }}...
                     </div>
+                    {{ post.updated_at }}
                     <span class="date_post">{{ post.created_date }}</span>
                     <div class="aboutsite_button">
                         <a href="{% url 'posts-detail' post.id %}">

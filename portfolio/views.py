@@ -74,3 +74,7 @@ class AboutMeDetailView(DetailView):
     model = Article
     template_name = 'portfolio/aboutme.html'
     context_object_name = 'article'
+
+
+def game(request):
+    return render(request, 'portfolio/game.html')

@@ -43,3 +43,8 @@ $(document).ready(function() {
         $('body').toggleClass('lock');
     });
 }); 
+
+
+// Scrips for game
+
+//
